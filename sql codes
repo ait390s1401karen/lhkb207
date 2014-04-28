@@ -65,7 +65,7 @@ insert into products (product_id, product_description, product_price, product_qu
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('2', 'teddy bear', 4.00, 10, '2');
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('3', 'toaster', 11.00, 8, '3');
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('4', 'Dick Tracy', 2.00, 5, '4');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('5', 'white woman's blouse', 22.00, 6, '2');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('5', 'white womans blouse', 22.00, 6, '2');
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('6', 'butterfly pen', 18.00, 2, '1');
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('7', 'telephone toy', 6.00, 8, '2');
 insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('8', 'iron', 9.00, 5, '3');
