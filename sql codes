@@ -1,0 +1,89 @@
+SET FOREIGN_KEY_CHECKS=0;
+drop table admin;
+drop table userProfiles;
+drop table products;
+drop table category;
+drop table announcements;
+ 
+SET FOREIGN_KEY_CHECKS=1;
+ 
+CREATE TABLE admin(
+admin_id CHAR(10) NOT NULL,
+admin_login VARCHAR(30),
+admin_password VARCHAR(30),
+PRIMARY KEY (admin_id)
+);
+ 
+CREATE TABLE userProfiles(
+user_email VARCHAR(30) NOT NULL,
+user_password CHAR(30),
+user_firstName VARCHAR(40),
+user_lastName VARCHAR(50),
+user_address VARCHAR(100),
+PRIMARY KEY (user_email)
+);
+ 
+CREATE TABLE category(
+category_id CHAR(10) NOT NULL,
+category_name VARCHAR(50),
+category_description VARCHAR(100),
+PRIMARY KEY (category_id)
+);
+CREATE TABLE announcements(
+announcement_id CHAR(10) NOT NULL,
+announcement_title VARCHAR(80),
+admin_id CHAR(10),
+announcement_date DATETIME,
+announcement_content VARCHAR(500),
+PRIMARY KEY (announcement_id),
+FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
+);
+ 
+CREATE TABLE products(
+product_id CHAR(10) NOT NULL,
+product_description VARCHAR(100),
+product_price DECIMAL(5,2),
+product_quantity INTEGER,
+category_id CHAR(10),
+PRIMARY KEY (product_id),
+FOREIGN KEY (category_id) REFERENCES category(category_id)
+);
+ 
+ 
+insert into admin (admin_id, admin_login, admin_password) values ('1', 'kb123', 'pepper');
+ 
+insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, accouncement_content) values ('1', 'EASTER SALE', '1', NOW(), 'Great deal on all Easter related items');
+ 
+insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, accouncement_content) values ('2', 'MOTHERS DAY SALE', '1', NOW(), 'Great SALE coming up');
+ 
+insert into category (category_id, category_name, category_description) values ('1', 'antiques', ‘valuable old items’);
+ 
+insert into category (category_id, category_name, category_description) values('2', 'toys', ' all childrens toys and games');
+ 
+insert into category (category_id, category_name, category_description) values('3', 'household', 'all household items');
+ 
+insert into category (category_id, category_name, category_description) values('4', 'books', 'fiction, art and non-fiction books');
+ 
+insert into category (category_id, category_name, category_description) values('5', 'clothing', 'adult and children clothing items');
+ 
+ 
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('1', 'beautiful vase from 1920', 59.99, 3, '1');
+ 
+ 
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('2', 'teddy bear', 4.00, 10, '2');
+ 
+ 
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('3', 'toaster', 11.00, 8, '3');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('4', 'Dick Tracy', 2.00, 5, '4');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('5', 'white woman's blouse', 22.00, 6, '2');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('6', 'butterfly pen', 18.00, 2, '1');
+ 
+ 
+ 
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('7', 'telephone toy', 6.00, 8, '2');
+ 
+ 
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('8', 'iron', 9.00, 5, '3');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('9', 'Astronomy Basics', 5.00, 2, '4');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('10', 'mens suit', 35.00, 2, '2');
+insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('11', 'desk from 1960', 55.00, 3, '1');
