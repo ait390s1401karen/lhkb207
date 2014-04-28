@@ -1,0 +1,36 @@
+ 
+body{
+ width: 100%;
+ height: auto;
+ text-align: center;
+ color: blue;
+ background-color: gray;
+  
+}
+
+p{
+  
+ color: black;
+text-align: center; 
+  
+}
+
+h1{
+  
+  color: navy;
+  text-align: left;
+}
+
+h2{
+  text-align: center;
+}
+
+label{
+
+  color: white;
+  
+}
+
+fieldset{
+  text-align: left;
+}
