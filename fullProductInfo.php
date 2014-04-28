@@ -19,25 +19,47 @@ session_start();
 
 $con = mysqli_connect("helios.vse.gmu.edu","kb","password", "kb");
 
-
+$order = 'category_id';
 
                          
-        $query = "SELECT category_name, product_name, product_description, product_price, product_quantity, products.category_id FROM products, category where category.category_id = products.category_id ORDER BY category_id";
 
-              $result = mysqli_query($con, $query);            
+
+
+        $query = "SELECT category_name, product_name, product_description, product_price, product_quantity, products.category_id FROM products, category where category.category_id = products.category_id ORDER BY " . $order;
+
+
+  $result = mysqli_query($con, $query);            
+
 
 
 echo "<table border='1'>
 <tr>
-<th>Category ID</th>
-<th>Category Name</th>
-<th>Product Name</th>
-<th>Product Description</th>
-<th>Price</th>
-<th>Quantity</th>
+<th><a href='?orderBy=category_id'>Category ID</a></th>
+<th><a href='?orderBy=category_name'>Category Name</a></th>
+<th><a href='?orderBy=product_name'>Product Name</a></th>
+<th><a href='?orderBy=product_description'>Product Description</a></th>
+<th><a href='?orderBy=product_price'>Price</a></th>
+<th><a href='?orderBy=product_quantity'>Quantity</a></th>
 
 
 </tr> " ;
+
+
+
+
+$orderBy = array('category_id', 'category_name', 'product_name', 'product_description', 'product_price', 'product_quantity');
+
+$order = 'category_id';
+if (isset($_GET['orderBy']) && in_array($_GET['orderBy'], $orderBy)) {
+    $order = $_GET['orderBy'];
+}
+
+
+
+ $query = "SELECT category_name, product_name, product_description, product_price, product_quantity, products.category_id FROM products, category where category.category_id = products.category_id ORDER BY " . $order;
+
+
+$result = mysqli_query($con, $query);
 
 
 
@@ -58,8 +80,12 @@ echo "</tr>";
 }
 echo "</table>";
 
-mysqli_close($con);
 
+
+
+
+
+mysqli_close($con);
 
 
 
@@ -70,3 +96,4 @@ mysqli_close($con);
 
 </body>
 </html>
+
