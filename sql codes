@@ -7,6 +7,9 @@ drop table announcements;
  
 SET FOREIGN_KEY_CHECKS=1;
  
+ 
+
+ 
 CREATE TABLE admin(
 admin_id CHAR(10) NOT NULL,
 admin_login VARCHAR(30),
@@ -41,6 +44,7 @@ FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
  
 CREATE TABLE products(
 product_id CHAR(10) NOT NULL,
+product_name VARCHAR(50),
 product_description VARCHAR(100),
 product_price DECIMAL(5,2),
 product_quantity INTEGER,
@@ -61,22 +65,24 @@ insert into category (category_id, category_name, category_description) values('
 insert into category (category_id, category_name, category_description) values('4', 'books', 'fiction, art and non-fiction books');
 insert into category (category_id, category_name, category_description) values('5', 'clothing', 'adult and children clothing items');
  
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('1', 'beautiful vase from 1920', 59.99, 3, '1');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('2', 'teddy bear', 4.00, 10, '2');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('3', 'toaster', 11.00, 8, '3');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('4', 'Dick Tracy', 2.00, 5, '4');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('5', 'white womans blouse', 22.00, 6, '2');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('6', 'butterfly pen', 18.00, 2, '1');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('7', 'telephone toy', 6.00, 8, '2');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('8', 'iron', 9.00, 5, '3');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('9', 'Astronomy Basics', 5.00, 2, '4');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('10', 'mens suit', 35.00, 2, '2');
-insert into products (product_id, product_description, product_price, product_quantity, category_id) values ('11', 'desk from 1960', 55.00, 3, '1');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('1', 'vase', 'beautiful vase from 1920', 59.99, 3, '1');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('2', 'teddy bear', 'adorable blue teddy bear', 4.00, 10, '2');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('3', 'toaster', 'working toaster like new', 11.00, 8, '3');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('4', 'Dick Tracy', 'great detective novel', 2.00, 5, '4');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('5', 'blouse', 'white womans blouse', 22.00, 6, '2');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('6', 'butterfly pen', 'antique pen from 1933', 18.00, 2, '1');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('7', 'telephone toy', 'emulates sounds of real telephone', 6.00, 8, '2');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('8', 'iron', 'working iron just like new', 9.00, 5, '3');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('9', 'Astronomy Basics', 'learn about astronomy with this introductory book', 5.00, 2, '4');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('10', 'mens suit', 'navy suit for men', 35.00, 2, '2');
+insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('11', 'desk', '1960 beautiful desk', 55.00, 3, '1');
 
 insert into userProfiles (user_email, user_password, user_firstName, user_lastName, user_address) values ('user1@email.com', 'password1', 'Bob', 'Barker', '123 Main Street');
 insert into userProfiles (user_email, user_password, user_firstName, user_lastName, user_address) values ('user2@email2.com', 'password2', 'Sara', 'Smith', '323 Second Street');
 insert into userProfiles (user_email, user_password, user_firstName, user_lastName, user_address) values ('user3@email3.com', 'password3', 'Leo', 'Leonard', '443 First Street'); 
 
 
-
+//If you have any troubles inserting data back into a table try this command:
+ 
+REPAIR TABLE "Table_name" QUICK;  
 
