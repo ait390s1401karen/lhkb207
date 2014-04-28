@@ -55,7 +55,7 @@ insert into admin (admin_id, admin_login, admin_password) values ('1', 'admin', 
 insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, announcement_content) values ('1', 'EASTER SALE', '1', NOW(), 'Great deal on all Easter related items');
 insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, announcement_content) values ('2', 'MOTHERS DAY SALE', '1', NOW(), 'Great SALE coming up');
  
-insert into category (category_id, category_name, category_description) values ('1', 'antiques', ‘valuable old items’);
+insert into category (category_id, category_name, category_description) values ('1', 'antiques', 'valuable old items');
 insert into category (category_id, category_name, category_description) values('2', 'toys', ' all childrens toys and games');
 insert into category (category_id, category_name, category_description) values('3', 'household', 'all household items');
 insert into category (category_id, category_name, category_description) values('4', 'books', 'fiction, art and non-fiction books');
