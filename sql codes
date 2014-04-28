@@ -50,7 +50,7 @@ FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
  
  
-insert into admin (admin_id, admin_login, admin_password) values ('1', 'kb123', 'pepper');
+insert into admin (admin_id, admin_login, admin_password) values ('1', 'kb123', 'password');
  
 insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, accouncement_content) values ('1', 'EASTER SALE', '1', NOW(), 'Great deal on all Easter related items');
  
