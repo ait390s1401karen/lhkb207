@@ -41,7 +41,10 @@ $query = "SELECT *  FROM userProfiles WHERE user_email = '" . $user ."'";
  $result1 = mysqli_query($con, $query);            
 
 
-echo "<table border='1'>
+echo "<table border='1'>";
+echo "<form method='post' action='edit.php'>
+
+
 <tr>
 <th>EMAIL </th>
 <th>PASSWORD</th>
@@ -58,12 +61,14 @@ while ($row = mysqli_fetch_array($result1))
  {
 
 echo "<tr>";
-echo "<td>" . $row['user_email'] . "</td>";
-echo "<td>" . $row['user_password'] . "</td>";
-echo "<td>" . $row['user_firstName'] . "</td>";
+echo "<td><input type='text' name='useEmail' size='20' value=" . $row['user_email'] . "></td>";
+echo "<td><input type='text' name='usePass' size='20' value=" . $row['user_password'] . "></td>";
+echo "<td><input type='text' name='useFirst' size='50' value="   . $row['user_firstName'] ."> </td>";
 
-echo "<td>" . $row['user_lastName'] . "</td>";
-echo "<td>" . $row['user_address'] . "</td>";
+echo "<td><input type='text' name='useLast' size='50' value="  . $row['user_lastName'] . "></td>";
+echo "<td> <input type='text' name='useAddress' size='80' value="  . $row['user_address'] . "></td>";
+echo "<input type='submit' name='submit' value='Update'>";
+
 
 echo "</tr>";
 }
@@ -87,3 +92,4 @@ echo "Invalid login";
    
   
    ?>
+
