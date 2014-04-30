@@ -33,7 +33,7 @@ category_description VARCHAR(100),
 PRIMARY KEY (category_id)
 );
 CREATE TABLE announcements(
-announcement_id CHAR(10) NOT NULL,
+announcement_id INTEGER AUTO_INCREMENT NOT NULL,
 announcement_title VARCHAR(80),
 admin_id CHAR(10),
 announcement_date DATETIME,
