@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 ?>
@@ -10,7 +11,7 @@ session_start();
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 </head>
 
-
+session_start();
 
 <body>
 <h1>Humane Society Thrift Store</h1>
@@ -25,7 +26,7 @@ We hope to see you soon at our shop!
 </p>
 
 <h1>
-Annoucements</h1>
+Announcements</h1>
 
 <?php
 
@@ -86,7 +87,7 @@ to prevent all forms of cruelty to animals, both domestic and wild, by every leg
 
 
 
-                <form action="login.php" method="POST">
+                <form action="profile.php" method="POST">
                             <fieldset>
                                 <legend>Please Login</legend>
 
@@ -123,4 +124,3 @@ to prevent all forms of cruelty to animals, both domestic and wild, by every leg
 </body>
 
 </html>
-
