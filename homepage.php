@@ -34,8 +34,8 @@
 			<li><a href="contact.php">Contact The Humane Society Thrift Store</a></li>
 		</ul>
 
-<div id="container 1">
-	<div id="contatiner 2">
+<div id="bodyContainer">
+		<h2>Welcome to the Humane Society Thrift Store website!</h2>
 		<p>The Humane Society of Fairfax County depends upon the proceeds of our thrift store to assist with the substantial and ever-increasing costs of medical care for our rescued animals.
 Additionally, this funding helps support the general feeding and care of the animals while they await their new loving families.
 
@@ -47,12 +47,9 @@ We hope to see you soon at our shop!</p>
 	
 	<div id="pic">
 			<td><img style="float:left" src=".png" alt="dog"></td>
-		</div>
-
 	</div>
-</div>
 
-<h1>Announcements</h1>
+<h2>Announcements</h2>
 
 <?php
 
@@ -65,8 +62,7 @@ $con = mysqli_connect("helios.vse.gmu.edu","lhall16","it207", "lhall16");
 
               $result = mysqli_query($con, $query);            
 
-
-echo "<table border='1'>
+echo "<table border='1' align='center'>
 <tr>
 <th>Announcement Date</th>
 <th>Announcement Title</th>
@@ -90,43 +86,76 @@ mysqli_close($con);
 
 ?>
 
+<br>
+
 <p><a href='http://helios.ite.gmu.edu/~lhall16/group/announcements.php'>Click here for ALL Announcements</a>
 
 </p>
 
+<br>
 
-<h1>HSFC MISSION STATEMENT</h1>
-The mission of the Humane Society of Fairfax County, Inc. is to promote humane education; 
+<h2>HSFC MISSION STATEMENT</h2>
+<p>The mission of the Humane Society of Fairfax County, Inc. is to promote humane education; 
 to prevent all forms of cruelty to animals, both domestic and wild, by every legitimate means; and to assist the community with all matters pertaining to the welfare of animals.
 </p>
 
+<div id="login">
+<?php	
+	if (isset($_SESSION['user_email'])) {
+		if($_SESSION['user_email']=="admin"){
+			echo '<div id="sidebarUserLoggedIn">';
+				echo '<fieldset>';
+					echo '<legend>User Options</legend>';
+					echo '<a href="adminPage.php">Administration Options</a>';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<a href="logout.php">Logout</a>';
+				echo '</fieldset>';
+				echo '</form>	';
+			echo '</div>';
+		}
+		else {	
+			echo '<div id="sidebarUserLoggedIn">';
+				echo '<fieldset>';
+					echo '<legend>User Options</legend>';
+					echo '<a href="profile.php">Profile</a>';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<a href="logout.php">Logout</a>';
+				echo '</fieldset>';
+				echo '</form>	';
+			echo '</div>';
+		}
 
-
-
-                <form action="profile.php" method="POST">
-                            <fieldset>
-                                <legend>Please Login</legend>
-
-        <labelfor "loginID">Login</label><br/>
-        
-        <input type="text" name="loginID" id="loginID"><br/>
-
-
-        <label for "password">Password</label><br/>
-        <input type="text" name="password" id="password"><br/>
-
-        <input type="submit" value="login">
-
-        </fieldset>
-
-                </form>
-       
-                <p>
+	}
+	else {	
+			echo '<form action="login.php" method="POST">';
+			echo '<fieldset>';
+				echo '<legend>User Login</legend>';
+					echo '<label for="username">Username</label>';
+					echo ' <input type="text" name="username" id="username">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+						
+					echo '<label for="password">Password</label>';
+					echo '<input type="password" name="password" id="password">&nbsp;&nbsp;&nbsp;';
+						
+					echo '<input type="submit" name="submit" value="submit">';
+					
+					echo '<br>';
+					
+					echo '<a href="register.php">New User Registration</a>';
+			echo '</fieldset>';
+			echo '</form>	';	
+			echo '</div>';
+	}	
+?>
+</div>
+</div>   
+    <div id="footer">
+                <i>
                         The content of this site is the original work of Lindsey Hall and Karen Bacon and
                         intended for educational purposes.<br /> For more information visit:
                         <a href="http://www.gmu.edu/catalog/apolicies/">
                                 http://www.gmu.edu/catalog/apolicies</a>
-                </p>
+                </i>
+	</div>
 
 </body>
 
