@@ -31,7 +31,7 @@
 		    <li><a href="announcements.php">Announcements</a></li>
 			<li><a href="about.php">About The Humane Society Thrift Store</a></li>
 			<li><a href="products.php">Products We Have</a></li>
-			<li><a href="contact.php">Contact The Humane Society Thrift Store/a></li>
+			<li><a href="contact.php">Contact The Humane Society Thrift Store</a></li>
 		</ul>
 </html>				
 
@@ -46,7 +46,7 @@ $con = mysqli_connect("helios.vse.gmu.edu","lhall16","it207", "lhall16");
               $result = mysqli_query($con, $query);            
 
 
-echo "<table border='1'>
+echo "<table border='1' align='center'>
 <tr>
 <th>Announcement Date</th>
 <th>Announcement Title</th>
@@ -70,27 +70,65 @@ echo "</table>";
 mysqli_close($con);
 ?>
 
+<?php	
+	if (isset($_SESSION['user_email'])) {
+		if($_SESSION['user_email']=="admin"){
+			echo '<div id="sidebarUserLoggedIn">';
+				echo '<fieldset>';
+					echo '<legend>User Options</legend>';
+					echo '<a href="adminPage.php">Administration Options</a>';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<a href="logout.php">Logout</a>';
+				echo '</fieldset>';
+				echo '</form>	';
+			echo '</div>';
+		}
+		else {	
+			echo '<div id="sidebarUserLoggedIn">';
+				echo '<fieldset>';
+					echo '<legend>User Options</legend>';
+					echo '<a href="profile.php">Profile</a>';
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+					echo '<a href="logout.php">Logout</a>';
+				echo '</fieldset>';
+				echo '</form>	';
+			echo '</div>';
+		}
+
+	}
+	else {	
+			echo '<form action="login.php" method="POST">';
+			echo '<fieldset>';
+				echo '<legend>User Login</legend>';
+					echo '<label for="username">Username</label>';
+					echo ' <input type="text" name="username" id="username">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+						
+					echo '<label for="password">Password</label>';
+					echo '<input type="password" name="password" id="password">&nbsp;&nbsp;&nbsp;';
+						
+					echo '<input type="submit" name="submit" value="submit">';
+					
+					echo '<br>';
+					
+					echo '<a href="register.php">New User Registration</a>';
+			echo '</fieldset>';
+			echo '</form>	';	
+			echo '</div>';
+	}	
+?>
+
+</div>
+
+
 <html>
-<!-- User login --!>		
-    <form action="login.php" method="POST">
-    <fieldset>
-    <legend>Please Login</legend>   
-        <labelfor "loginID">Login</label><br/>        
-        <input type="text" name="loginID" id="loginID"><br/>
-
-        <label for "password">Password</label><br/>
-        <input type="text" name="password" id="password"><br/>
-
-        <input type="submit" value="login">
-    </fieldset>
-    </form>
-                <p>
+    <div id="footer">
+                <i>
                         The content of this site is the original work of Lindsey Hall and Karen Bacon and
                         intended for educational purposes.<br /> For more information visit:
                         <a href="http://www.gmu.edu/catalog/apolicies/">
                                 http://www.gmu.edu/catalog/apolicies</a>
-                </p>
-
+                </i>
+	</div>
  
 </body>
 
