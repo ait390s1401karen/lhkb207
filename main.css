@@ -3,22 +3,29 @@ body{
  width: 100%;
  height: auto;
  text-align: center;
- color: blue;
- background-color: gray;
-  
+ background-color: #FFFFDB; 
 }
 
-p{
-  
- color: black;
-text-align: center; 
-  
+#header {
+			position: relative;
+			overflow: hidden;
+			margin: 0 auto;
+			min-width: 960px;
+			height: 97px;
+			background-color: #8AB800;
 }
 
 h1{
+	font-family: Papyrus, "Times New Roman", Times, serif;
+    	font-size: 40px;
+    	font-weight: bold;
+    	text-align: center;
+    	color: #FFFFFF; }
+
+p{
+ color: black;
+text-align: center; 
   
-  color: navy;
-  text-align: left;
 }
 
 h2{
@@ -33,4 +40,41 @@ label{
 
 fieldset{
   text-align: left;
+}
+
+
+#navigation {
+      		width: 100%;
+      		float: left;
+      		margin: 0 0 3em 0;
+      		padding: 0;
+      		list-style: none;
+     		background-color: #8AB800;
+     		border-bottom: 1px solid #ccc; 
+     		border-top: 1px solid #CCC; }
+  		 #navigation li {
+  		    float: left; }
+ 		 #navigation li a {
+  		    display: block;
+     		padding: 8px 15px;
+      		text-decoration: none;
+      		font-weight: bold;
+      		color: #8AB800;
+      		border-right: 1px solid #CCC; 
+}
+#navigation li a:link {
+      		color: #FFFFFF;
+      		background-color: #8AB800; 
+}
+#navigation li a:hover {
+      		color: #8AB800;
+      		background-color: #FFF; 
+}
+#navigation li a:visited {
+      	 	color: #8AB800;
+      	 	background-color: #FFF; 
+}
+
+#bodyContainer{
+
 }
