@@ -2,6 +2,7 @@
 // if session not already started, begin one
 	if (!isset($_SESSION)){
 		session_start();
+	}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
