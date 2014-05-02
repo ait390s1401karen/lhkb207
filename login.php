@@ -21,7 +21,7 @@ session_start();
 							          setcookie('user_email', $row['admin_login'], time() + (60 * 60 * 24 * 30));
 							          
 								echo "Login successful.  You will be redirected automatically to the homepage.";
-								header('Refresh: 0; url=homepage.php'); 
+								header('Refresh: 2; url=homepage.php'); 
 							}						
 						//else if user_email/user_password combo not correct display error message
 						else {
@@ -61,10 +61,8 @@ session_start();
 							          setcookie('user_email', $row['user_email'], time() + (60 * 60 * 24 * 30));
 							          
 								echo "Login successful.  You will be redirected automatically to the homepage.";
-								 foreach ($logarray as $fields) {
-                                            fputcsv($logfile, $fields);
-                                                                }
-							header('Refresh: 0; url=homepage.php'); 
+                                                                
+							header('Refresh: 2; url=homepage.php'); 
 							}						
 						//else if user_email/user_password combo not correct display error message
 						else {
