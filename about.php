@@ -30,7 +30,7 @@
 		    <li><a href="homepage.php">Homepage</a></li>
 		    <li><a href="announcements.php">Announcements</a></li>
 			<li><a href="about.php">About The Humane Society Thrift Store</a></li>
-			<li><a href="project1.php">Products We Have</a></li>
+			<li><a href="products.php">Products We Have</a></li>
 			<li><a href="contact.php">Contact The Humane Society Thrift Store</a></li>
 		</ul>
 </html>		
