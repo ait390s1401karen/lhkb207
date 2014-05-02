@@ -1,6 +1,6 @@
 <?php
 	// if session not already started, begin one
-	if (!isset($_SESSION){
+	if (!isset($_SESSION)){
 		session_start();
 	}
 ?>
