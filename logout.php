@@ -10,7 +10,7 @@
   		setcookie('user_email', '', time() - 3600);
 
   		echo "Logout successful.  You will now be automatically redirected to the homepage.";
-  		header('Refresh: 0; url=homepage.php');
+  		header('Refresh: 2; url=homepage.php');
 
 }
 ?>
