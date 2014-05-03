@@ -54,28 +54,28 @@ FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
  
  
-insert into admin (admin_id, admin_login, admin_password) values ('1', 'admin', 'admin');
+insert into admin ( admin_login, admin_password) values ('admin', 'admin');
  
-insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, announcement_content) values ('1', 'EASTER SALE', '1', NOW(), 'Great deal on all Easter related items');
-insert into announcements (announcement_id, announcement_title, admin_id, announcement_date, announcement_content) values ('2', 'MOTHERS DAY SALE', '1', NOW(), 'Great SALE coming up');
+insert into announcements ( announcement_title, admin_id, announcement_date, announcement_content) values ('EASTER SALE', '1', NOW(), 'Great deal on all Easter related items');
+insert into announcements ( announcement_title, admin_id, announcement_date, announcement_content) values ('MOTHERS DAY SALE', '1', NOW(), 'Great SALE coming up');
  
-insert into category (category_id, category_name, category_description) values ('1', 'antiques', 'valuable old items');
-insert into category (category_id, category_name, category_description) values('2', 'toys', ' all childrens toys and games');
-insert into category (category_id, category_name, category_description) values('3', 'household', 'all household items');
-insert into category (category_id, category_name, category_description) values('4', 'books', 'fiction, art and non-fiction books');
-insert into category (category_id, category_name, category_description) values('5', 'clothing', 'adult and children clothing items');
+insert into category ( category_name, category_description) values ('antiques', 'valuable old items');
+insert into category ( category_name, category_description) values('toys', ' all childrens toys and games');
+insert into category ( category_name, category_description) values('household', 'all household items');
+insert into category ( category_name, category_description) values('books', 'fiction, art and non-fiction books');
+insert into category ( category_name, category_description) values('clothing', 'adult and children clothing items');
  
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('1', 'vase', 'beautiful vase from 1920', 59.99, 3, '1');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('2', 'teddy bear', 'adorable blue teddy bear', 4.00, 10, '2');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('3', 'toaster', 'working toaster like new', 11.00, 8, '3');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('4', 'Dick Tracy', 'great detective novel', 2.00, 5, '4');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('5', 'blouse', 'white womans blouse', 22.00, 6, '2');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('6', 'butterfly pen', 'antique pen from 1933', 18.00, 2, '1');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('7', 'telephone toy', 'emulates sounds of real telephone', 6.00, 8, '2');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('8', 'iron', 'working iron just like new', 9.00, 5, '3');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('9', 'Astronomy Basics', 'learn about astronomy with this introductory book', 5.00, 2, '4');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('10', 'mens suit', 'navy suit for men', 35.00, 2, '2');
-insert into products (product_id, product_name, product_description, product_price, product_quantity, category_id) values ('11', 'desk', '1960 beautiful desk', 55.00, 3, '1');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('vase', 'beautiful vase from 1920', 59.99, 3, '1');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('teddy bear', 'adorable blue teddy bear', 4.00, 10, '2');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('toaster', 'working toaster like new', 11.00, 8, '3');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('Dick Tracy', 'great detective novel', 2.00, 5, '4');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('blouse', 'white womans blouse', 22.00, 6, '2');
+insert into products (product_name, product_description, product_price, product_quantity, category_id) values ('butterfly pen', 'antique pen from 1933', 18.00, 2, '1');
+insert into products (product_name, product_description, product_price, product_quantity, category_id) values ('telephone toy', 'emulates sounds of real telephone', 6.00, 8, '2');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('iron', 'working iron just like new', 9.00, 5, '3');
+insert into products ( product_name, product_description, product_price, product_quantity, category_id) values ('Astronomy Basics', 'learn about astronomy with this introductory book', 5.00, 2, '4');
+insert into products (product_name, product_description, product_price, product_quantity, category_id) values ('mens suit', 'navy suit for men', 35.00, 2, '2');
+insert into products (product_name, product_description, product_price, product_quantity, category_id) values ('desk', '1960 beautiful desk', 55.00, 3, '1');
 
 insert into userProfiles (user_email, user_password, user_firstName, user_lastName, user_address) values ('user1@email.com', 'password1', 'Bob', 'Barker', '123 Main Street');
 insert into userProfiles (user_email, user_password, user_firstName, user_lastName, user_address) values ('user2@email2.com', 'password2', 'Sara', 'Smith', '323 Second Street');
