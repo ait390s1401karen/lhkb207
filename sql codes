@@ -35,7 +35,7 @@ PRIMARY KEY (category_id)
 CREATE TABLE announcements(
 announcement_id INTEGER AUTO_INCREMENT NOT NULL,
 announcement_title VARCHAR(80),
-admin_id CHAR(10),
+admin_id INTEGER,
 announcement_date DATETIME,
 announcement_content VARCHAR(500),
 PRIMARY KEY (announcement_id),
@@ -48,7 +48,7 @@ product_name VARCHAR(50),
 product_description VARCHAR(100),
 product_price DECIMAL(5,2),
 product_quantity INTEGER,
-category_id CHAR(10),
+category_id INTEGER,
 PRIMARY KEY (product_id),
 FOREIGN KEY (category_id) REFERENCES category(category_id)
 );
