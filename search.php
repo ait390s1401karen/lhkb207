@@ -1,4 +1,7 @@
+<!--Displays top of the website--!>
 <?php
+	include 'topOfPage.html';
+
 $con = mysqli_connect("helios.vse.gmu.edu","lhall16","it207", "lhall16") or die ("not connecting");
 
 //Build function for search
@@ -52,7 +55,7 @@ while ($row = mysqli_fetch_array($result)) {
     echo '<td valign="top" width="20%">' . $row['product_id'] . '</td>';
     echo '<td valign="top" width="10%">' . $row['product_name'] . '</td>';
     echo '<td valign="top" width="20%">' . $row['product_description'] . '</td>';
-    echo '<td valign="top" width="20%">' . $row['product_price'] . '</td>';
+    echo '<td valign="top" width="20%">' . '$' . $row['product_price'] . '</td>';
 
     echo '</tr>';
  }
@@ -61,3 +64,9 @@ while ($row = mysqli_fetch_array($result)) {
 
   mysqli_close($con);
 ?>
+
+<!--Displays bottom of the website--!>
+<?php
+	include 'bottomOfPage.html';
+?>	
+</html>
