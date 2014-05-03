@@ -1,7 +1,17 @@
+<?php
+// if session not already started, begin one
+if (!isset($_SESSION)){
+session_start();
+}
+?>
+
 <!--Displays top of the website--!>
 <?php
 	include 'topOfPage.html';
-?>	
+?>
+
+<h2>Products</h2>
+
 <?php
 
 
@@ -111,7 +121,8 @@ mysqli_close($con);
 
 
 ?>
-
-</body>
+<?php
+include 'bottomOfPage.html';
+?>	
 </html>
 
