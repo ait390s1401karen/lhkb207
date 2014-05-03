@@ -49,7 +49,7 @@ session_start();
 						}
 		}
 		else {
-									//if the user_email and user_password fields are not empty check the database to see if the selected combo is right
+				//if the user_email and user_password fields are not empty check the database to see if the selected combo is right
 						if(!empty($user_email) && !empty($user_password)){
 							$query = "SELECT user_email FROM userProfiles WHERE user_email = '$user_email' AND user_password = '$user_password'";
 						
