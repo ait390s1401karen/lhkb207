@@ -1,11 +1,13 @@
+<html>
 <div id="login">
+<!--User login-->
 <?php	
 	if (isset($_SESSION['user_email'])) {
 		if($_SESSION['user_email']=="admin"){
 			echo '<div id="sidebarUserLoggedIn">';
 				echo '<fieldset>';
-					echo '<legend>User Options</legend>';
-					echo '<a href="adminPage.php">Administration Options</a>';
+					echo '<legend>Admin Options</legend>';
+					echo '<a href="adminPage.php">Admin Options</a>';
 					echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<a href="logout.php">Logout</a>';
 				echo '</fieldset>';
@@ -47,7 +49,8 @@
 ?>
 </div>
 
-<html>    
+<html>   
+<!--Footer--> 
     <div id="footer">
                 <i>
                         The content of this site is the original work of Lindsey Hall and Karen Bacon and
