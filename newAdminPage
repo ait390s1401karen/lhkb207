@@ -5,7 +5,7 @@
 
 $con = mysqli_connect("helios.vse.gmu.edu", "kbacon5", "pepper123", "kbacon5");
 
-$queryAnnouncements = "SELECT * FROM announcements ORDER BY announcement_date";
+$queryAnnouncements = "SELECT announcement_id, announcement_date, announcement_title, announcement_content FROM announcements";
 $queryCategories = "SELECT * FROM category";
 $queryProducts = "SELECT * FROM products";
 $queryProfiles = "SELECT * from userProfiles";
@@ -32,8 +32,6 @@ echo "<form method='post' action='adminPage.php'>
 <th>Announcement Date</th>
 <th>Announcement Title</th>
 <th>Announcement</th>
-<th>Delete button</th>
-<th>Update Button</th>
 
 </tr> ";
 
@@ -50,24 +48,33 @@ while ($row = mysqli_fetch_array($resultAnnouncements))
     echo "<tr>";
     
     
-    echo "<td> <input type='hidden' name='id' value=" . $id = $row['announcement_id'] . "></td>";
+    echo "<td> <label name='id'>" . $row['announcement_id'] . "</td>";
     
     echo "<td><input type='text' name='date' size='20' value=" . $row['announcement_date'] . "></td>";
     echo "<td><input type='text' name='title' size='30' value=" . $row['announcement_title'] . "></td>";
     echo "<td><input type='text' name='content' size='50' value=" . $row['announcement_content'] . "> </td>";
-    echo "<td><input type='submit' name='delete' value='delete'></td>";
-    echo "<td><input type='submit' name='update' value='update'></td>";
-    
+        
     echo "</tr>";
     
     
   }
 
+echo "<input type='submit' name='delete' value='delete announcement'></td>";
+echo "<input type='submit' name='update' value='update announcement'></td>";
+
 echo "</table>";
 
 if (isset($_POST['delete']))
   {
+
+
+
+echo "<label>Please enter id of announcement you would like to delete</label>";
+echo "<input type='text' name='id'  />";
+
     $id = $_POST['id'];
+
+
     if (!mysqli_query($con, "DELETE FROM announcements WHERE announcement_id = $id"))
       {
         echo mysqli_error($con);
@@ -78,9 +85,14 @@ if (isset($_POST['delete']))
       }
   }
 
-
-else if (isset($_POST['update']))
+ if (isset($_POST['update']))
   {
+
+
+
+echo "<label>Please enter id of announcement you would like to update</label>";
+echo "<input type='text' name='id'/>";
+
     
     $id      = $_POST['id'];
     $title   = $_POST['title'];
@@ -92,309 +104,12 @@ else if (isset($_POST['update']))
     
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 echo "<fieldset>";
 
 
 echo "<label for='announcement_title'>Title</label>";
 echo "<input type = 'text' name='title'  id='title' />";
-echo "<label for='content'>Announcement</label>";
+echo "<label for='acontent'>Announcement</label>";
 echo "<input type = 'text' name='content'  id='content' />";
 
 
-echo "<input type= 'submit' name='submit' value='Add Announcement'/>";
-echo "</fieldset>";
-
-if (isset($_POST['submit']))
-  {
-    
-    $title   = $_POST['title'];
-    $content = $_POST['content'];
-    
-    
-    
-    echo "</form>";
-    $query222 = "insert into announcements(announcement_date, announcement_title, announcement_content) values  ( NOW() , '$title' , '$content')";
-    
-    
-    $result = mysqli_query($con, $query222);
-  }
-
-
-
-
-
-
-//Categories table
-
-
-
-echo "<table border='1'>";
-echo "<form method='post' action='adminPage.php'>
-
-
-<tr>
-<th>Category ID</th>
-<th>Category Name</th>
-<th>Category Description</th>
-<th>Delete button</th>
-<th>Update Button</th>
-
-</tr> ";
-
-
-
-
-while ($row = mysqli_fetch_array($resultCategories))
-  {           
-    
-    echo "<tr>";
-    
-    
-    echo "<td> <input type='hidden' name='id' value=" . $id = $row['category_id'] . "></td>";
-    echo "<td><input type='text' name='catName' size='20' value=" . $row['category_name'] . "></td>";
-    echo "<td><input type='text' name='catDesc' size='30' value=" . $row['category_description'] . "></td>";
-    echo "<td><input type='submit' name='delete' value='delete'></td>";
-    echo "<td><input type='submit' name='update' value='update'></td>";
-    
-    echo "</tr>";
-    
-    
-  }
-
-echo "</table>";
-
-if (isset($_POST['delete']))
-  {
-    $id = $_POST['id'];
-    if (!mysqli_query($con, "DELETE FROM category WHERE category_id = $id"))
-      {
-        echo mysqli_error($con);
-      }
-    else
-      {
-        //redirect $_SERVER['REQUEST_URI'];
-      }
-  }
-
-
-else if (isset($_POST['update']))
-  {
-    
-    $id      = $_POST['id'];
-    $catName   = $_POST['catName'];
-    $catDesc = $_POST['catDesc'];
-    
-    $query11 = "update category set category_name='$catName',  category_description = '$catDesc' where announcement_id = $id";
-    
-    $result = mysqli_query($con, $query11);
-    
-  }
-
-
-
-echo "<fieldset>";
-
-
-echo "<label for='category_Name'>Category Name</label>";
-echo "<input type = 'text' name='catName'  id='catName' />";
-echo "<label for='category_desc'>Description</label>";
-echo "<input type = 'text' name='catDesc'  id='catDesc' />";
-
-
-echo "<input type= 'submit' name='submit' value='Add Category'/>";
-echo "</fieldset>";
-
-if (isset($_POST['submit']))
-  {
-    
-    $catName   = $_POST['catName'];
-    $catDesc = $_POST['catDesc'];
-     
-    
-    echo "</form>";
-    $query222 = "insert into category(category_name, category_description) values  ( '$catName' , '$catDesc')";
-    
-    
-    $result = mysqli_query($con, $query222);
-  }
-
-
-
-
-
-echo "<table border='1'>";
-echo "<form method='post' action='adminPage.php'>
-
-
-<tr>
-<th>Product ID</th>
-<th>Product Name</th>
-<th> Description</th>
-<th>Price</th>
-<th>Quantity</th>
-<th>Category Id</th>
-<th>Delete button</th>
-<th>Update Button</th>
-
-</tr> ";
-
-$i = 0;
-
-
-while ($row = mysqli_fetch_array($resultProducts))
-  {
-    
-    
-    
-    
-    
-    echo "<tr>";
-    
-    
-    echo "<td> <input type='hidden' name='id" . $i ." ' value=" . $row['product_id']  . "></td>";
-    
-    echo "<td><input type='text' name='prodName' size='20' value=" . $row['product_name'] . "></td>";
-    echo "<td><input type='text' name='prodDesc' size='30' value=" . $row['product_description'] . "></td>";
-    echo "<td><input type='text' name='prodPrice' size='8' value=" . $row['product_price'] . "> </td>";
-echo "<td><input type='text' name='qty' size='8' value=" . $row['product_quantity'] . "></td>";
-    echo "<td><input type='text' name='catID' size='8' value=" . $row['category_id'] . "> </td>";
-
-    echo "<td><input type='submit' name='delete' value='delete'></td>";
-    echo "<td><input type='submit' name='update' value='update'></td>";
-    
-    echo "</tr>";
-    $i++;
-    
-  }
-
-echo "</table>";
-
-if (isset($_POST['delete']))
-  {
-    $id = $_POST['id' . $i   ];
-    if (!mysqli_query($con, "DELETE FROM products WHERE product_id = $id "))
-      {
-        echo mysqli_error($con);
-      }
-    else
-      {
-        //redirect $_SERVER['REQUEST_URI'];
-      }
-  }
-
-
-else if (isset($_POST['update']))
-  {
-    
-    $id      = $_POST['id'];
-    $name   = $_POST['prodName'];
-    $desc = $_POST['prodDesc'];
-  $price = $_POST['prodPrice'];
-$qty = $_POST['qty'];
-$catID = $_POST['catID'];
-    
-    $query11 = "update productts set product_name='$name',  product_description = '$desc', product_price = '$price', product_quantity = '$qty' where announcement_id = $id";
-    
-    $result = mysqli_query($con, $query11);
-    
-  }
-
-
-
-
-
-
-echo "<fieldset>";
-
-
-echo "<label for='prodName'>Product Name</label>";
-echo "<input type = 'text' name='prodName'  id='prodName' />";
-echo "<label for='content'>Description</label>";
-echo "<input type = 'text' name='prodDesc'  id='prodDesc' />";
-echo "<label for='prodPRice'>Product Price</label>";
-echo "<input type = 'text' name='prodprice'  id='prodprice' />";
-echo "<label for='qty'>Quantity</label>";
-echo "<input type = 'text' name='qty'  id='qty' />";
-echo "<label for = 'catID'> Category ID</label>";
-echo "<input type='text' name='catID' id='catID'/>";
-
-
-
-
-
-
-
-
-echo "<input type= 'submit' name='submit' value='Add Product'/>";
-echo "</fieldset>";
-
-if (isset($_POST['submit']))
-  {
-    
-    $name  = $_POST['prodName'];
-    $desc = $_POST['prodDesc'];
-    $price = $_POST['prodprice'];
-  $qty= $_POST['qty'];
-$catID = $_POST['catID'];
-
-    
-    
-    echo "</form>";
-    $query222 = "insert into products(product_name, product_description, product_price, product_quantity, category_ID) values  ($name, $desc, $price, $qty, $catID)";
-    
-    
-    $result = mysqli_query($con, $query222);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-mysqli_close($con);
-
-
-
-
-?>
