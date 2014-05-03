@@ -27,7 +27,7 @@ PRIMARY KEY (user_email)
 );
  
 CREATE TABLE category(
-category_id INTEGER AUTO_INCREMENT NOT NULL,,
+category_id INTEGER AUTO_INCREMENT NOT NULL,
 category_name VARCHAR(50),
 category_description VARCHAR(100),
 PRIMARY KEY (category_id)
@@ -43,7 +43,7 @@ FOREIGN KEY (admin_id) REFERENCES admin(admin_id)
 );
  
 CREATE TABLE products(
-product_id INTEGER AUTO_INCREMENT NOT NULL,,
+product_id INTEGER AUTO_INCREMENT NOT NULL,
 product_name VARCHAR(50),
 product_description VARCHAR(100),
 product_price DECIMAL(5,2),
