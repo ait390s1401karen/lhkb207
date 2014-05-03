@@ -3,7 +3,7 @@
 
 
 
-$con = mysqli_connect("helios.vse.gmu.edu", "kbacon5", "pepper123", "kbacon5");
+$con = mysqli_connect("helios.vse.gmu.edu", "kb", "password", "kb");
 
 $queryAnnouncements = "SELECT announcement_id, announcement_date, announcement_title, announcement_content FROM announcements";
 $queryCategories = "SELECT * FROM category";
